@@ -18,8 +18,15 @@ export class ProductService {
     return await this.productRepository.bulkCreate(productsToSave);
   }
 
-  async getAll(): Promise<Product[]> {
-    return this.productRepository.findAll();
+  async getAll(limit: number, offset: number): Promise<Product[]> {
+    return this.productRepository.findAll({
+      limit,
+      offset,
+    });
+  }
+
+  async countAll(): Promise<number> {
+    return this.productRepository.count();
   }
 
   async getProductsCount(): Promise<number> {

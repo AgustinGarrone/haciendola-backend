@@ -16,13 +16,23 @@ export class AuthService {
     private jwtAuthService: JwtService,
   ) {}
 
-  async register(userObject: CreateUserDTO): Promise<User> {
+  async register(userObject: CreateUserDTO): Promise<LoginResponse> {
     try {
       const { password } = userObject;
       const saltRounds = 10;
       const plainToHash = await bcrypt.hash(password, saltRounds);
       userObject = { ...userObject, password: plainToHash };
-      return this.userRepository.create(userObject);
+      const user = await this.userRepository.create(userObject);
+
+      const payload = { id: user.id, name: user.name };
+      const token = this.jwtAuthService.sign(payload);
+
+      return {
+        name: user.name,
+        lastname: user.lastname,
+        email: user.email,
+        token,
+      };
     } catch (error) {
       console.log(error);
     }

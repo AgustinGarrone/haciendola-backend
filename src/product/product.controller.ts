@@ -14,6 +14,7 @@ import { Product } from 'src/models/product.model';
 import { ValidationPipe } from '@nestjs/common';
 import { CreateProductDto } from './dto/product.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { Query } from '@nestjs/common';
 
 @ApiTags('Product')
 @ApiBearerAuth()
@@ -23,8 +24,18 @@ export class ProductController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  async getAll(): Promise<Product[]> {
-    return this.productService.getAll();
+  async getAll(
+    @Query('page') page = 1,
+    @Query('limit') limit = 35,
+  ): Promise<Product[]> {
+    const offset = (page - 1) * limit;
+    return this.productService.getAll(limit, offset);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('count')
+  async countAll(): Promise<number> {
+    return this.productService.countAll();
   }
 
   @Post()

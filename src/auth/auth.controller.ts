@@ -5,7 +5,6 @@ import {
   LoginResponse,
   LoginUserDTO,
 } from './dto/create-auth.dto';
-import { User } from 'src/models/user.model';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Auth')
@@ -14,7 +13,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
-  register(@Body() userObject: CreateUserDTO): Promise<User> {
+  register(@Body() userObject: CreateUserDTO): Promise<LoginResponse> {
     return this.authService.register(userObject);
   }
 
