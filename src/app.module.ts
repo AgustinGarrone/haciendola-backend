@@ -3,6 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
+import { AppService } from './app.service';
+import { productProvider } from './models/product.model';
+import { ExcelService } from './product/excel.service';
 
 @Module({
   imports: [
@@ -12,6 +15,6 @@ import { ProductModule } from './product/product.module';
     ProductModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [AppService, ...productProvider, ExcelService],
 })
 export class AppModule {}

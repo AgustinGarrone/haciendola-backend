@@ -12,8 +12,10 @@ export class ProductService {
     private excelService: ExcelService,
   ) {}
 
-  async addFromExcel(filePath: string) {
-    return await this.excelService.readExcel(filePath);
+  async addFromExcel(filePath: string): Promise<Product[]> {
+    const productsToSave = await this.excelService.readExcel(filePath);
+
+    return await this.productRepository.bulkCreate(productsToSave);
   }
 
   async getAll(): Promise<Product[]> {
