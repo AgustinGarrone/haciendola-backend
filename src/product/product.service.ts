@@ -2,7 +2,7 @@ import { HttpException, Inject } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { Product } from 'src/models/product.model';
 import { ExcelService } from './excel.service';
-import { CreateProductDto } from './dto/product.dto';
+import { CreateProductDto, LoadExcelDto } from './dto/product.dto';
 
 @Injectable()
 export class ProductService {
@@ -12,14 +12,18 @@ export class ProductService {
     private excelService: ExcelService,
   ) {}
 
-  async addFromExcel(filePath: string): Promise<Product[]> {
-    const productsToSave = await this.excelService.readExcel(filePath);
+  async addFromExcel(): Promise<Product[]> {
+    const productsToSave = await this.excelService.readExcel();
 
     return await this.productRepository.bulkCreate(productsToSave);
   }
 
   async getAll(): Promise<Product[]> {
     return this.productRepository.findAll();
+  }
+
+  async getProductsCount(): Promise<number> {
+    return this.productRepository.count();
   }
 
   async create(createProductDto: CreateProductDto): Promise<Product> {

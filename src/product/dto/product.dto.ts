@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsNumber,
-  Min,
-  IsDecimal,
-} from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 export type ProductDTO = {
   handle: string;
@@ -19,6 +13,11 @@ export type ProductDTO = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+export class LoadExcelDto {
+  @IsString()
+  filePath: string;
+}
 
 export class CreateProductDto {
   @IsString({ message: 'El campo "handle" debe ser una cadena de caracteres.' })

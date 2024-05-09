@@ -10,7 +10,6 @@ export class ExcelService {
     filePath = 'https://docs.google.com/spreadsheets/d/1Puy7ZwVWkri384hMg5EYVga7uaVNjIHM/export?format=xlsx',
   ): Promise<ProductDTO[]> {
     const buffer = await downloadExcel(filePath);
-
     if (!buffer) return [];
 
     const workbook = new ExcelJS.Workbook();
