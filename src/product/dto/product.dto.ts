@@ -14,11 +14,6 @@ export type ProductDTO = {
   updatedAt: Date;
 };
 
-export class LoadExcelDto {
-  @IsString()
-  filePath: string;
-}
-
 export class CreateProductDto {
   @IsString({ message: 'El campo "handle" debe ser una cadena de caracteres.' })
   @IsNotEmpty({ message: 'El campo "handle" es obligatorio.' })
