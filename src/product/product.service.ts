@@ -12,6 +12,7 @@ export class ProductService {
   ) {}
 
   async read() {
-    return this.excelService.readExcel();
+    await this.excelService.readExcel();
+    return true;
   }
 }
