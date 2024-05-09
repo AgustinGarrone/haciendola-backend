@@ -2,7 +2,7 @@ import { HttpException, Inject } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { Product } from 'src/models/product.model';
 import { ExcelService } from './excel.service';
-import { CreateProductDto, LoadExcelDto } from './dto/product.dto';
+import { CreateProductDto } from './dto/product.dto';
 
 @Injectable()
 export class ProductService {

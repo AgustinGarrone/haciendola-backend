@@ -12,7 +12,7 @@ import { Get } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth-guard';
 import { Product } from 'src/models/product.model';
 import { ValidationPipe } from '@nestjs/common';
-import { CreateProductDto, LoadExcelDto } from './dto/product.dto';
+import { CreateProductDto } from './dto/product.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Product')
