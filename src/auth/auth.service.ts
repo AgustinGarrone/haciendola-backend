@@ -1,5 +1,9 @@
 import { HttpException, Inject, Injectable } from '@nestjs/common';
-import { CreateUserDTO, LoginUserDTO } from './dto/create-auth.dto';
+import {
+  CreateUserDTO,
+  LoginResponse,
+  LoginUserDTO,
+} from './dto/create-auth.dto';
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/models/user.model';
 import { JwtService } from '@nestjs/jwt';
@@ -24,10 +28,7 @@ export class AuthService {
     }
   }
 
-  async login(userData: LoginUserDTO): Promise<{
-    user: User;
-    token: string;
-  }> {
+  async login(userData: LoginUserDTO): Promise<LoginResponse> {
     const { email, password } = userData;
     const user = await this.userRepository.findOne({
       where: {
@@ -43,8 +44,10 @@ export class AuthService {
     const payload = { id: user.id, name: user.name };
     const token = this.jwtAuthService.sign(payload);
 
-    const data = {
-      user,
+    const data: LoginResponse = {
+      email: user.email,
+      name: user.name,
+      lastname: user.lastname,
       token,
     };
 

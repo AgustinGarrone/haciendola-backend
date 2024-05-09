@@ -51,3 +51,10 @@ export class LoginUserDTO {
   @IsNotEmpty({ message: 'El campo "password" es obligatorio.' })
   password: string;
 }
+
+export type LoginResponse = {
+  name: string;
+  lastname: string;
+  email: string;
+  token: string;
+};

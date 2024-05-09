@@ -1,6 +1,10 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateUserDTO, LoginUserDTO } from './dto/create-auth.dto';
+import {
+  CreateUserDTO,
+  LoginResponse,
+  LoginUserDTO,
+} from './dto/create-auth.dto';
 import { User } from 'src/models/user.model';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -15,10 +19,7 @@ export class AuthController {
   }
 
   @Post('login')
-  loginUser(@Body() userData: LoginUserDTO): Promise<{
-    user: User;
-    token: string;
-  }> {
+  loginUser(@Body() userData: LoginUserDTO): Promise<LoginResponse> {
     return this.authService.login(userData);
   }
 }
