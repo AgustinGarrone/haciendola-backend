@@ -13,9 +13,9 @@ Aplicación CRUD de productos y usuarios, con una base inicial de productos carg
 - **JWT (JSON Web Tokens)**: Método estándar para la transferencia segura de datos entre dos partes.
 
 ## Pre requisitos
-- **Node.js y pnpm instalados en tu sistema.
-- **PostgreSQL instalado y configurado en tu sistema.
-- **Crear base de datos que se ajuste a la data harcodeada dentro de providers.ts para lograr la conexión inicial. Las tablas se generan solas.
+- Node.js y pnpm instalados en tu sistema.
+- PostgreSQL instalado y configurado en tu sistema.
+- Crear base de datos que se ajuste a la data harcodeada dentro de providers.ts para lograr la conexión inicial. Las tablas se generan solas.
 ![database](https://github.com/AgustinGarrone/haciendola-backend/assets/75916775/8e8746e0-e4c8-416c-bfa7-208495381d1d)
 
 ## Instalacion
