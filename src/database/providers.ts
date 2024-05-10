@@ -13,16 +13,12 @@ export const databaseProviders = [
         username: 'postgres',
         password: 'testdata',
         database: 'haciendola',
+        dialectOptions: {
+          createDatabaseIfNotExist: true,
+        },
       });
       sequelize.addModels([Product, User]);
-      sequelize
-        .sync()
-        .then(() => {
-          console.log('Synchronization successful');
-        })
-        .catch((error) => {
-          console.error('Synchronization failed:', error);
-        });
+      await sequelize.sync();
       return sequelize;
     },
   },
