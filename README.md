@@ -1,7 +1,7 @@
 
 ## Haciendola Backend
 
-Aplicación CRUD de productos y usuarios, con una base inicial de productos cargados mediante un excel.
+Aplicación CRUD de productos y usuarios creada en 24hs, con una base inicial de productos cargados mediante un excel.
 
 ## Tecnologías destacadas
 
@@ -53,3 +53,20 @@ $ pnpm start
 $ npm pnpm start:dev
 
 ```
+
+## Documentación
+Visitando /docs encuentra la documentación del api rest
+http://localhost:3000/docs
+
+## Extras realizados
+- Usar JWT para manejar la autenticación de usuarios
+- Encriptación de contraseñas con Bcrypt
+- Usar Typescript
+-  Uso de alguna librería o framework para creación de SPA
+-  Validar que el usuario esté
+logeado para acceder a ventanas privadas
+- Aplicación responsiva (hasta cierto punto. Mobile no)
+- Uso de algún framework para la construcción del backend en NodeJS
+- Validar la autentificación del usuario al intentar acceder a las rutas de
+producto.
+- Uso de alguna herramienta para generar documentación. Swagger 
