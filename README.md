@@ -5,12 +5,12 @@ Aplicación CRUD de productos y usuarios, con una base inicial de productos carg
 
 ## Tecnologías destacadas
 
-NestJS: Framework de Node.js para construir aplicaciones eficientes y escalables del lado del servidor.
-Express: Framework web minimalista para Node.js utilizado por NestJS como base.
-Passport.js: Middleware de autenticación para Node.js.
-Sequelize: ORM (Object-Relational Mapping) para Node.js, compatible con varios dialectos SQL, incluido PostgreSQL.
-PostgreSQL: Sistema de gestión de bases de datos relacional de código abierto.
-JWT (JSON Web Tokens): Método estándar para la transferencia segura de datos entre dos partes.
+- **NestJS**: Framework de Node.js para construir aplicaciones eficientes y escalables del lado del servidor.
+- **Express**: Framework web minimalista para Node.js utilizado por NestJS como base.
+- **Passport.js**: Middleware de autenticación para Node.js.
+- **Sequelize**: ORM (Object-Relational Mapping) para Node.js, compatible con varios dialectos SQL, incluido PostgreSQL.
+- **PostgreSQL**: Sistema de gestión de bases de datos relacional de código abierto.
+- **JWT (JSON Web Tokens)**: Método estándar para la transferencia segura de datos entre dos partes.
 
 ## Pre requisitos
 Node.js y pnpm instalados en tu sistema.
