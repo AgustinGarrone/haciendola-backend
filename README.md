@@ -43,6 +43,8 @@ $ pnpm install
 
 ## Ejecución
 
+Importante verificar la conexión esté sobre el puerto 3000
+
 ```bash
 # development
 $ pnpm start
