@@ -8,14 +8,11 @@ export const databaseProviders = [
     useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: 'postgres',
-        host: 'localhost',
+        host: 'db',
         port: 5432,
-        username: 'postgres',
-        password: 'testdata',
+        username: 'user123',
+        password: 'password123',
         database: 'haciendola',
-        dialectOptions: {
-          createDatabaseIfNotExist: true,
-        },
       });
       sequelize.addModels([Product, User]);
       await sequelize.sync({ alter: true });
