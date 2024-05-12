@@ -13,10 +13,7 @@ Aplicación CRUD de productos y usuarios creada en 24hs, con una base inicial de
 - **JWT (JSON Web Tokens)**: Método estándar para la transferencia segura de datos entre dos partes.
 
 ## Pre requisitos
-- Node.js y pnpm instalados en tu sistema.
-- PostgreSQL instalado y configurado en tu sistema.
-- Crear base de datos que se ajuste a la data harcodeada dentro de providers.ts para lograr la conexión inicial. Las tablas se generan solas.
-![database](https://github.com/AgustinGarrone/haciendola-backend/assets/75916775/8e8746e0-e4c8-416c-bfa7-208495381d1d)
+- Tener **Docker** instalado en tu sistema
 
 ## Instalacion
 
@@ -32,31 +29,22 @@ Accede al directorio del repositorio
 $ cd haciendola-backend
 ```
 
-Instala las dependencias del proyecto:
-
-```bash
-
-$ pnpm install
-```
-
-
 
 ## Ejecución
 
-Importante verificar la conexión esté sobre el puerto 3000
-
 ```bash
-# development
-$ pnpm start
+# Construimos la imagen basada en la aplicación
+docker build -t haciendola-nest-app .
 
-# watch mode
-$ npm pnpm start:dev
-
+# Ejecutamos las imagenes (postgres y app)
+docker compose up
 ```
+
+Y listo!
 
 ## Documentación
 Visitando /docs encuentra la documentación del api rest
-http://localhost:3000/docs
+**http://localhost:3000/docs**
 
 ## Extras realizados
 - Usar JWT para manejar la autenticación de usuarios
